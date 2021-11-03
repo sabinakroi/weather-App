@@ -36,7 +36,8 @@ const Main = () => {
         ) : (
           <DataDiv>
             <div>
-              Temperature in <strong>{city}</strong> is {weatherData.main.temp}{" "}
+              Temperature in <strong>{city}</strong> is{" "}
+              <strong>{weatherData.main.temp} </strong>
               °C{" "}
             </div>
             <div />

@@ -10,7 +10,7 @@ export const Header = styled.header`
 `;
 
 export const MainDiv = styled.div`
-  background-image: url(././img.jpg);
+  background-image: url(././thunderstorm.jpg);
   background-size: cover;
   height: 1000%;
   margin: 0px;
