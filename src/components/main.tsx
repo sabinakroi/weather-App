@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getCurrent } from "../api/current-weather";
 import { WeatherData } from "../types/weather-types";
 import CitySelector from "./city-selector";
-import { Header, MainDiv } from "./styles";
+import { DataDiv, Header, MainDiv } from "./styles";
 
 const Main = () => {
   const [city, setCity] = React.useState("Tirana");
@@ -28,12 +28,13 @@ const Main = () => {
   return (
     <div>
       <Header>Weather App</Header>
+      <br />
       <MainDiv>
         <CitySelector onChange={handleChange} city={city} />
         {loading || !weatherData ? (
           "Loading"
         ) : (
-          <div>
+          <DataDiv>
             <div>
               Temperature in <strong>{city}</strong> is {weatherData.main.temp}{" "}
               °C{" "}
@@ -53,12 +54,8 @@ const Main = () => {
                 <strong>{weatherData.main.temp_max}°C</strong>
               </div>
               <div />
-              <div>
-                The wind is expected to travel at an average speed of{" "}
-                <strong>{weatherData.wind.speed} km/h</strong>
-              </div>
             </div>
-          </div>
+          </DataDiv>
         )}
       </MainDiv>
     </div>
