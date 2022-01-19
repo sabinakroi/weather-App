@@ -52,3 +52,13 @@ export interface WeatherData {
   name: string;
   cod: number;
 }
+
+export interface WeatherLocation {
+  coord: Coordinates;
+  id: number;
+  name: string;
+}
+export interface Coordinates {
+  lon: number;
+  lat: number;
+}

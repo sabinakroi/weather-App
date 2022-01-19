@@ -4,9 +4,9 @@ export const Header = styled.header`
   text-align: center;
   height: 2rem;
   font-size: 25px;
-  color: #0f0346;
+  color: #000000;
   font-variant: normal;
-  width: 25%;
+  width: 100%;
 `;
 
 export const MainDiv = styled.div`
@@ -32,6 +32,9 @@ export const MainDiv = styled.div`
 `;
 export const DataDiv = styled.div`
   text-align: center;
+`;
+export const GifDiv = styled.div`
+  display: flex;
 `;
 
 export const Div = styled.div`

@@ -1,6 +1,25 @@
 import React, { FunctionComponent } from "react";
 
-const cities = ["Tirana", "Paris", "London", "Helsinki", "Berlin"];
+const cities = [
+  "Tirana",
+  "Paris",
+  "London",
+  "Helsinki",
+  "Berlin",
+  "Mariehamn",
+  "Tallinn",
+  "Budapest",
+  "Tokyo",
+  "Rome",
+  "Washington D.C.",
+  "Buenos Aires,",
+  "Bangkok",
+  "Cape Town",
+  "Wellington",
+  "Sarajevo",
+  "Sofia",
+  "Pristina",
+];
 
 const CitySelector: FunctionComponent<{
   city: string;

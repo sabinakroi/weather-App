@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getCurrent } from "../api/current-weather";
 import { WeatherData } from "../types/weather-types";
 import CitySelector from "./city-selector";
-import { DataDiv, Header, MainDiv } from "./styles";
+import { DataDiv, GifDiv, Header, MainDiv } from "./styles";
 
 const Main = () => {
   const [city, setCity] = React.useState("Tirana");
@@ -10,8 +10,18 @@ const Main = () => {
   const [weatherData, setWeatherData] = React.useState<WeatherData | null>(
     null
   );
+  const [locationSearch, setLocationSearch] = useState("");
+
+  const [locations, setLocations] = useState<string[]>([]);
 
   const [loading, setLoading] = React.useState(false);
+
+  const disableSearch = locationSearch.trim() === "";
+
+  const addLocation = () => {
+    setLocations([locationSearch, ...locations]);
+    setLocationSearch("");
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -27,8 +37,31 @@ const Main = () => {
 
   return (
     <div>
-      <Header>Weather App</Header>
+      <GifDiv>
+        <Header>Weather App</Header>
+        <div>
+          <iframe
+            title="This is a title"
+            src="https://giphy.com/embed/S9E9aC1U3nPHSC5bMz"
+            width="100"
+            height="150"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </GifDiv>
       <br />
+      <div>
+        <input
+          type="text"
+          value={locationSearch}
+          onChange={(e) => setLocationSearch(e.target.value)}
+        />
+
+        <button onClick={addLocation} disabled={disableSearch}>
+          Search
+        </button>
+      </div>
       <MainDiv>
         <CitySelector onChange={handleChange} city={city} />
         {loading || !weatherData ? (
@@ -59,6 +92,16 @@ const Main = () => {
           </DataDiv>
         )}
       </MainDiv>
+      <div>
+        <h2>Locations</h2>
+        <tbody>
+          {locations.map((location, index) => (
+            <tr key={index}>
+              <td>{location}</td>
+            </tr>
+          ))}
+        </tbody>
+      </div>
     </div>
   );
 };
